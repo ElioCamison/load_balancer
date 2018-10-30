@@ -1,12 +1,11 @@
 public class Monitoring {
 
-    private Boolean statMember = true;
+    private static Member member = Member.getInstance();
 
-    Monitoring(Boolean statMember){
-        this.statMember = statMember;
+    public void checkStatus(Member member){
+        if(!member.getStatMember()){
+
+        }
     }
 
-    public Boolean getStatMember() {
-        return statMember;
-    }
 }
