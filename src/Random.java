@@ -5,8 +5,22 @@ public class Random implements Strategy {
 
     List<Member> randoList = new ArrayList<Member>();
 
-    Random(List randoList){
-        this.randoList = randoList;
+    private static Random random = null;
+
+    private Random(){
+
+    }
+
+    private synchronized static void createInstance(){
+        if(random == null)
+            random = new Random();
+    }
+
+    public static Random getInstance() {
+        if (random == null)
+            createInstance();
+
+        return random;
     }
 
     @Override
@@ -15,7 +29,10 @@ public class Random implements Strategy {
     }
 
     @Override
-    public void clonar() {
+    public RoundRobin clonar() {
+        if(RoundRobin.getInstance() != null)
+            return RoundRobin.getInstance().clonar();
 
+        return RoundRobin.getInstance();
     }
 }

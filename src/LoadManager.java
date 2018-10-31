@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class LoadManager implements LoadBalancer,Strategy {
 
     private List<Member> memberList = new ArrayList<Member>();
     private Probe probe = new Probe();
-    private static LoadManager loadManager;
+    private static LoadManager loadManager = null;
+    private static RoundRobin roundRobin;
+    private static Random random;
     private HashMap<Integer,LoadManager> cacheLoadManager = new HashMap<Integer, LoadManager>();
 
     private LoadManager(){
@@ -42,19 +43,16 @@ public class LoadManager implements LoadBalancer,Strategy {
     }
 
     @Override
-    public void sendToStrategy() {
-
-    }
-
-
-    @Override
     public int sentToStrategy() {
         return 0;
     }
 
     @Override
-    public void clonar() {
+    public LoadManager clonar() {
+        if(LoadManager.getInstance() != null)
+            return LoadManager.getInstance().clonar();
 
+        return LoadManager.getInstance();
     }
 }
 
