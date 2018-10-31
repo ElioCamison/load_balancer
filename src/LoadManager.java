@@ -42,9 +42,15 @@ public class LoadManager implements LoadBalancer,Strategy {
             return "Valors correctes";
     }
 
+
     @Override
-    public int sentToStrategy() {
-        return 0;
+    public Object sentToStrategy(Object strategy) {
+
+        if(RoundRobin.getInstance() != null)
+            return RoundRobin.getInstance();
+        else
+        return Random.getInstance();
+
     }
 
     @Override

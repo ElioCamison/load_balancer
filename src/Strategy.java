@@ -1,6 +1,6 @@
 public interface Strategy {
 
-    int sentToStrategy();
+    Object sentToStrategy(Object obj);
 
     Object clonar();
 }

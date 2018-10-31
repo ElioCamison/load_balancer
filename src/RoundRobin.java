@@ -24,9 +24,9 @@ public class RoundRobin implements Strategy {
     }
 
     @Override
-    public int sentToStrategy() {
+    public Object sentToStrategy(Object roundRobin) {
 
-        return 0;
+        return RoundRobin.getInstance();
     }
 
     @Override
