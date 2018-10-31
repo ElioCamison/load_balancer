@@ -47,6 +47,15 @@ public class LoadManager implements LoadBalancer,Strategy {
     }
 
 
+    @Override
+    public int sentToStrategy() {
+        return 0;
+    }
+
+    @Override
+    public void clonar() {
+
+    }
 }
 
 

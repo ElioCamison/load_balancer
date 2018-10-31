@@ -2,10 +2,10 @@
 public class Probe {
 
     private Member member = Member.getInstance();
-    private int cpu = member.getCpu();
-    private int network = member.getNetwork();
-    private int memory = member.getMemory();
-    private int disc = member.getDisc();
+    private int cpu;
+    private int network;
+    private int memory;
+    private int disc;
 
     Probe(){
 
