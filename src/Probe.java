@@ -1,7 +1,6 @@
 // Classe Sonda
 public class Probe {
 
-    private Member member = Member.getInstance();
     private int cpu;
     private int network;
     private int memory;
@@ -11,11 +10,24 @@ public class Probe {
 
     }
 
-    Probe(int cpu, int network, int memory, int disc){
+
+    Probe(int cpu, int network, int memory, int disc) {
+
         this.cpu = cpu;
         this.network = network;
         this.memory = memory;
         this.disc = disc;
+
+    }
+
+
+    public String checkStatusMember() {
+
+        if (this.getCpu() > 80 || this.getMemory() > 80 || this.getNetwork() > 80 || this.getDisc() > 80 )
+            return "Valor per damunt el permés";
+        else
+            return "Valors correctes";
+
     }
 
     public int getCpu() {

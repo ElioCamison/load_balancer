@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class LoadManager implements LoadBalancer,Strategy {
+public class LoadManager implements Strategy {
 
     private List<Member> memberList = new ArrayList<Member>();
     private Probe probe = new Probe();
@@ -16,11 +16,14 @@ public class LoadManager implements LoadBalancer,Strategy {
     }
 
     private synchronized static void createInstance() {
+
         if(loadManager == null)
             loadManager = new LoadManager();
+
     }
 
     public static LoadManager getInstance() {
+
         if (loadManager == null)
             createInstance();
 
@@ -28,37 +31,31 @@ public class LoadManager implements LoadBalancer,Strategy {
     }
 
     public HashMap<Integer, LoadManager> getCopyLoadManager() throws CloneNotSupportedException {
+
         if (loadManager != null)
               cacheLoadManager.put(1, (LoadManager) loadManager.clone());
 
         return cacheLoadManager;
     }
 
-    @Override
-    public String checkStatusMember() {
-        if (probe.getCpu() > 80 || probe.getDisc() > 80 || probe.getNetwork() > 80 || probe.getMemory() > 80 )
-            return "Valor per damunt el permés";
-        else
-            return "Valors correctes";
-    }
 
 
     @Override
     public Object sentToStrategy(Object strategy) {
 
-        if(RoundRobin.getInstance() != null)
-            return RoundRobin.getInstance();
-        else
-        return Random.getInstance();
+        RoundRobin rb = RoundRobin.getInstance();
+
+        return rb != null ? rb : Random.getInstance();
 
     }
 
     @Override
     public LoadManager clonar() {
-        if(LoadManager.getInstance() != null)
-            return LoadManager.getInstance().clonar();
 
-        return LoadManager.getInstance();
+        LoadManager lm = LoadManager.getInstance();
+
+        return lm != null ? lm : LoadManager.getInstance().clonar();
+
     }
 }
 
