@@ -4,12 +4,20 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         LoadManager loadManager = LoadManager.getInstance();
         RoundRobin roundRobin = RoundRobin.getInstance();
         Random random = Random.getInstance();
+        Probe probe = new Probe();
 
-        loadManager.sentToStrategy(roundRobin);
-        loadManager.sentToStrategy(random);
+        if (probe.checkStatusMember()) {
+
+            loadManager.sentToStrategy(roundRobin);
+            loadManager.sentToStrategy(random);
+
+        }
+
+
 
         List<Member> memberList = new ArrayList<>();
 
@@ -17,6 +25,12 @@ public class Main {
             Member member = new Member();
             memberList.add(member);
         }
+
+        Monitoring monitoring = new Monitoring();
+
+
+
+
 
 
     }

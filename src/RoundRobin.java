@@ -25,7 +25,8 @@ public class RoundRobin implements Strategy {
 
     @Override
     public Object sentToStrategy(Object roundRobin) {
-
+        for (int i = 0; i < memberList.size(); i++) {
+        }
         return RoundRobin.getInstance();
     }
 

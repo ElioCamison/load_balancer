@@ -21,12 +21,12 @@ public class Probe {
     }
 
 
-    public String checkStatusMember() {
+    public Boolean checkStatusMember() {
 
         if (this.getCpu() > 80 || this.getMemory() > 80 || this.getNetwork() > 80 || this.getDisc() > 80 )
-            return "Valor per damunt el permés";
+            return true;
         else
-            return "Valors correctes";
+            return false;
 
     }
 

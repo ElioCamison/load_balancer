@@ -23,9 +23,10 @@ public class Random implements Strategy {
         return random;
     }
 
+
     @Override
-    public int sentToStrategy() {
-        return (int) Math.floor(Math.random()* randoList.size() + 1);
+    public Object sentToStrategy(Object obj) {
+        return null;
     }
 
     @Override
