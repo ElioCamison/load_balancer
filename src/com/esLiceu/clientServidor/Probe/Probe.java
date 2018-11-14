@@ -1,5 +1,9 @@
+package com.esLiceu.clientServidor.Probe;
+
 // Classe Sonda
 public class Probe {
+
+    //Probe tendría que ser una estrategia
 
     private int cpu;
     private int network;
@@ -48,7 +52,7 @@ public class Probe {
 
     @Override
     public String toString() {
-        return "Probe{" +
+        return "com.esLiceu.clientServidor.Probe.Probe{" +
                 "cpu=" + cpu + " % "+
                 ", network=" + network + " % "+
                 ", memory=" + memory + " % "+
