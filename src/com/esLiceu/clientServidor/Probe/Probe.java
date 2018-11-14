@@ -10,7 +10,7 @@ public class Probe {
     private int memory;
     private int disc;
 
-    Probe(){
+    public Probe(){
 
     }
 

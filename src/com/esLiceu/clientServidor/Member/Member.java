@@ -1,3 +1,5 @@
+package com.esLiceu.clientServidor.Member;
+
 public class Member {
 
     private String url;

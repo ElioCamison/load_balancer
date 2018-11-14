@@ -1,3 +1,7 @@
+package com.esLiceu.clientServidor.Probe;
+
+import java.lang.reflect.Member;
+
 public class Monitoring {
 
     private boolean statut = true;

@@ -1,5 +1,11 @@
-import com.esLiceu.clientServidor.Probe.Probe;
+package com.esLiceu.clientServidor.Balancer;
 
+import com.esLiceu.clientServidor.Probe.Probe;
+import com.esLiceu.clientServidor.Strategy.Random;
+import com.esLiceu.clientServidor.Strategy.RoundRobin;
+import com.esLiceu.clientServidor.Strategy.Strategy;
+
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

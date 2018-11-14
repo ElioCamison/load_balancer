@@ -1,3 +1,5 @@
+package com.esLiceu.clientServidor.Request;
+
 public class Request {
 
     private static Request request = null;
