@@ -1,9 +1,12 @@
 package com.esLiceu.clientServidor.Member;
 
+import com.esLiceu.clientServidor.Probe.Probe;
+
 public class Member {
 
     private String url;
     private static Member member = null;
+    private Probe probe = new Probe();
 
 
     public Member(){
